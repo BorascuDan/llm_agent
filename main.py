@@ -59,11 +59,9 @@ def main():
         types.Content(role="user", parts=[types.Part(text=user_prompt)]),
     ]
 
-        # python
     for _ in range(20):
         try:
             resp = generate_content(client, messages, verbose)
-            # only finish when there are no more function calls
             if not resp.function_calls and resp.text:
                 print("Final response:")
                 print(resp.text)
